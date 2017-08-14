@@ -102,9 +102,8 @@ class Item extends React.Component {
   }
 
   open() {
-    let filePath = this.props.path
-    filePath = filePath.replace(/\\/g,"\\\\")
-
+    var filePath = String.raw`C:\Users\Nathan\Desktop\tab_bord.psd`
+    filePath = filePath.replace(/\\/g, "\\\\")
 
     console.log(filePath)
     shell.openItem(filePath)
