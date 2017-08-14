@@ -1,0 +1,16 @@
+{
+  "name": "handi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron-prebuilt-compile": "^1.6.11",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}

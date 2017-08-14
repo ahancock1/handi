@@ -1,0 +1,167 @@
+html,
+body,
+#app,
+.main,
+.column {
+  position: relative;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@import "Montserrat/stylesheet.css";
+
+body {
+  overflow: hidden;
+}
+
+$paddingItem: 20px;
+$horizontalMargin: 50px;
+$verticalMargin: 10px;
+$itemBg: #dde0e2;
+$font: 'Montserrat', sans-serif;
+$radius: 5px;
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: calc(100% - (#{$horizontalMargin} * 2));
+    margin: 0 $horizontalMargin;
+    max-width: 20vw;
+
+    .head{
+      background: #d1d6d9;
+      border-radius: $radius;
+      padding: $paddingItem;
+      width: 100%;
+      margin: $verticalMargin 0;
+      text-align: center;
+      font-family: $font;
+      font-weight: 500;
+      color: #333;
+      text-transform: uppercase;
+
+      img{
+        max-height: 8vh;
+        max-width: 100%;
+      }
+    }
+
+    .item {
+      flex: 1;
+      background: $itemBg;
+      margin: $verticalMargin 0;
+      text-align: center;
+      border-radius: $radius;
+      padding: $paddingItem;
+      transition: .2s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: calc(100% - (#{$verticalMargin} * 2));
+
+      img {
+        margin-top: 10%;
+        width: 50%;
+        max-height: 60%;
+      }
+
+      h1 {
+        font-family: $font;
+        text-transform: uppercase;
+        font-weight: 900;
+        margin: 20px 0;
+        width: calc(100% - (#{$paddingItem * 2}));
+        font-size: 1.5em;
+        position: absolute;
+        bottom: 0;
+        color: #333;
+      }
+
+      .infos {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        transition: .2s;
+        z-index: 999;
+        padding: $paddingItem;
+        width: calc(100% - (#{$paddingItem * 2}));
+        height: calc(100% - (#{$paddingItem * 2}));
+        background: $itemBg;
+        font-family: $font;
+        font-weight: 300;
+        text-align: justify;
+        cursor: auto;
+
+        p{
+          padding-top: 7%;
+        }
+
+        &.see{
+          font-size: 1.05em;
+          font-weight: 700;
+          line-height: 1.2em;
+        }
+
+        .btnContainer {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+
+          button{
+            border:none;
+            height: 40px;
+            font-family: $font;
+            text-transform: uppercase;
+            font-weight: 700;
+            vertical-align: middle;
+            margin: 1px;
+            cursor: pointer;
+            transition: .1s;
+            outline: none;
+
+            &:active{
+              transform: scale(.9);
+            }
+
+            img{
+              margin:0;
+            }
+          }
+
+          .btnPrimary {
+            background: #333;
+            color: #fff;
+            display: block;
+            width: calc(100% - 2px);
+          }
+
+          .btnSecondary {
+            background: #fff;
+            color: #333;
+            width: calc(50% - 2px);
+          }
+        }
+      }
+
+      &:hover {
+        flex: 1.7;
+        z-index: 9999;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+
+        .infos {
+          bottom: 0;
+        }
+      }
+    }
+  }
+}

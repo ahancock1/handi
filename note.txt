@@ -1,0 +1,6 @@
+retirer menu par défault / plein ecran
+ouvrir fichier
+absolute path to relative
+
+ajouter items
+mot de passe
