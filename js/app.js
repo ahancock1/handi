@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 const {shell} = require('electron')
+const {dialog} = require('electron').remote
 const path = require('path')
 
 class App extends React.Component {
@@ -21,8 +22,6 @@ class App extends React.Component {
 
 
 
-
-
 class Column extends React.Component {
   render() {
     return(
@@ -34,6 +33,7 @@ class Column extends React.Component {
           Exemple : je n'ai jamais fait ce travail. J'ai un doute. Je ne me rappelle plus comment faire."
           icon="man-thinking.svg"
           path="‪C:\Users\Nathan\Desktop\tab_bord.psd"
+          private={false}
         />
 
         <Item
@@ -43,13 +43,15 @@ class Column extends React.Component {
           Combien j'ai de sachets par référence de l'entreprise La Brosse et Dupont"
           icon="list.svg"
           path="‪C:\Users\Nathan\Desktop\tab_bord.psd"
+          private={false}
         />
 
         <Item
           text="éducateur"
           def="Cet espace est réservé à l'éducateur, vous avez besoin d'un mot de passe."
           icon="minus-circle.svg"
-          path="‪C:\Users\Nathan\Desktop\tab_bord.psd"
+          path={String.raw`C:\Users\Nathan\Desktop\tab_bord.psd`}
+          private={true}
         />
       </div>
     )
@@ -102,11 +104,24 @@ class Item extends React.Component {
   }
 
   open() {
-    var filePath = String.raw`C:\Users\Nathan\Desktop\tab_bord.psd`
-    filePath = filePath.replace(/\\/g, "\\\\")
 
-    console.log(filePath)
-    shell.openItem(filePath)
+    var filePath = String.raw`C:\Users\Nathan\Desktop\tab_bord.psd`
+    // filePath = filePath.replace(/\\/g, "\\\\")
+
+
+    if(this.props.private === true){
+      // prompt has to be added
+      var mdp = "123456"
+
+      if(mdp === "123456"){
+        shell.openItem(this.props.path)
+      }
+
+    }else{
+      shell.openItem(this.props.path)
+    }
+
+
   }
 
 
