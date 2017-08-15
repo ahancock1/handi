@@ -12,14 +12,13 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      modal: 'password'
+      modal: 'hidden',
+      private: true
     }
   }
 
-  modalView (view) {
-    this.setState({
-      modal: view
-    })
+  appState (content) {
+    this.setState(content)
   }
 
   render() {
@@ -30,18 +29,18 @@ class App extends React.Component {
     }
     else if (this.state.modal === 'password') {
       modal = <div className="modalContainer">
-                <Password modalView={this.modalView.bind(this)} />
+                <Password appState={this.appState.bind(this)} />
               </div>
     }
 
     return(
         <div className="main">
           {modal}
-          <Column />
-          <Column />
-          <Column />
-          <Column />
-          <Column />
+          <Column appState={this.appState.bind(this)} private={this.state.private} />
+          <Column appState={this.appState.bind(this)} private={this.state.private} />
+          <Column appState={this.appState.bind(this)} private={this.state.private} />
+          <Column appState={this.appState.bind(this)} private={this.state.private} />
+          <Column appState={this.appState.bind(this)} private={this.state.private} />
         </div>
     )
   }

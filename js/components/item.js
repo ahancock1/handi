@@ -9,7 +9,6 @@ export default class Item extends React.Component {
     }
   }
 
-
   default() {
     this.setState({access: 'default'})
   }
@@ -31,15 +30,16 @@ export default class Item extends React.Component {
     var filePath = String.raw`C:\Users\Nathan\Desktop\tab_bord.psd`
     // filePath = filePath.replace(/\\/g, "\\\\")
 
-
     if(this.props.private === true){
-      this.props.modalView('password')
+      this.props.appState({
+        modal: 'password'
+      })
     }else{
       shell.openItem(this.props.path)
+      this.props.appState({
+        private: true
+      })
     }
-
-    // shell.openItem(this.props.path)
-
 
   }
 

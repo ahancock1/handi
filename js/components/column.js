@@ -15,6 +15,7 @@ export default class Column extends React.Component {
           icon="man-thinking.svg"
           path="‪C:\Users\Nathan\Desktop\tab_bord.psd"
           private={false}
+          appState={this.props.appState}
         />
 
         <Item
@@ -25,6 +26,7 @@ export default class Column extends React.Component {
           icon="list.svg"
           path="‪C:\Users\Nathan\Desktop\tab_bord.psd"
           private={false}
+          appState={this.props.appState}
         />
 
         <Item
@@ -32,7 +34,8 @@ export default class Column extends React.Component {
           def="Cet espace est réservé à l'éducateur, vous avez besoin d'un mot de passe."
           icon="minus-circle.svg"
           path={String.raw`C:\Users\Nathan\Desktop\tab_bord.psd`}
-          private={true}
+          private={this.props.private}
+          appState={this.props.appState}
         />
       </div>
     )

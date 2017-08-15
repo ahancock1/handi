@@ -13,10 +13,10 @@ export default class Password extends React.Component {
     let prompt = document.getElementById('passPrompt').value
 
     if(prompt === this.state.pass){
-      this.props.modalView('hidden')
-    }
-    else{
-      console.log('incorrect');
+      this.props.appState({
+        modal: 'hidden',
+        private: false
+      })
     }
   }
 
