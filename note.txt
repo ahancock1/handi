@@ -2,5 +2,7 @@ retirer menu par défault / plein ecran
 ouvrir fichier
 absolute path to relative
 
-ajouter items
+modal add
 mot de passe
+
+séparer components
