@@ -3,6 +3,3 @@ ouvrir fichier
 absolute path to relative
 
 modal add
-mot de passe
-
-séparer components
