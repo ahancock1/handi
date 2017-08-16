@@ -1,8 +1,4 @@
 retirer menu par défault / plein ecran
-ouvrir fichier
-absolute path to relative
 
-modal add
-modal add croix pour fermer
 base de donnée json
-echape fermer modal
+ESCAPE fermer modal

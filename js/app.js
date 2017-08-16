@@ -20,7 +20,8 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-     Mousetrap.bind('ctrl+h', () => this.setState({modal: 'add'}) )
+    Mousetrap.bind('ctrl+h', () => this.setState({modal: 'add'}) )
+    Mousetrap.bind('esc', () => this.setState({modal: 'hidden'}) )
   }
 
 
