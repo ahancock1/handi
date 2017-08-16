@@ -14,12 +14,28 @@ body {
   overflow: hidden;
 }
 
+
+
 $paddingItem: 20px;
 $horizontalMargin: 50px;
 $verticalMargin: 10px;
 $itemBg: #dde0e2;
 $font: 'Montserrat', sans-serif;
 $radius: 5px;
+
+h1.empty{
+  font-family: $font;
+  color: #333;
+  font-size: 2em;
+  text-align: center;
+  line-height: 2em;
+  font-weight: 700;
+
+  span{
+    font-weight: 300;
+    display: block;
+  }
+}
 
 .modalContainer{
   position: absolute;

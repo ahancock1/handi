@@ -55,8 +55,16 @@ class App extends React.Component {
               </div>
     }
 
-    var columns = Object.keys(this.state.data.clients).map(i  => <Column key={i} appState={this.appState.bind(this)} private={this.state.private} data={this.state.data} clientKey={i}/> )
 
+    if(Object.keys(this.state.data.clients).length != 0){
+      var columns = Object.keys(this.state.data.clients).map(i  => <Column key={i} appState={this.appState.bind(this)} private={this.state.private} data={this.state.data} clientKey={i}/> )
+    }
+    else{
+      var columns = <h1 className="empty">
+                      Aucun client n'est dans la base de donnée, voulez-vous en ajouter ?
+                      <span>ctrl+h</span>
+                    </h1>
+    }
 
     return(
         <div className="main">
