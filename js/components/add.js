@@ -10,22 +10,50 @@ export default class Add extends React.Component {
   }
 
   submit(){
-    let prompt = document.getElementById('passPrompt').value
+    let name = document.getElementById('add-name').value,
+        img = document.getElementById('add-img').files[0].path,
+        mo = document.getElementById('add-mo').files[0].path,
+        i = document.getElementById('add-i').files[0].path,
+        e = document.getElementById('add-e').files[0].path
 
-    if(prompt === this.state.pass){
-      this.props.appState({
-        modal: 'hidden',
-        private: false
-      })
-    }
+    console.log(name, img, mo, i, e)
+  }
+
+  close(){
+    this.props.appState({modal: "hidden"})
   }
 
   render(){
     return (
       <div className="modal">
-        <h1>Ajouter une entreprise</h1>
-        
-        <input type="button" onClick={() => this.submit()} value="Ajouter"/>
+        <button onClick={() => this.close()} className="close">
+          <img src="img/cross-out.svg" />
+        </button>
+        <h1>Ajouter un client</h1>
+
+        <input type="text" placeholder="Nom du client" id="add-name" />
+
+        <label>
+          <input type="file" id="add-img"/>
+          Logo du client
+        </label>
+
+        <label>
+          <input type="file" id="add-mo"/>
+          Mode Opératoire
+        </label>
+
+        <label>
+          <input type="file" id="add-i"/>
+          Inventaire
+        </label>
+
+        <label>
+          <input type="file" id="add-e"/>
+          Éducateur
+        </label>
+
+        <input type="button" onClick={() => this.submit()} value="Ajouter" className="submitBtn"/>
       </div>
     )
   }

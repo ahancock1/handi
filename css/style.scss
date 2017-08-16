@@ -35,11 +35,70 @@ $radius: 5px;
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 999;
+    z-index: 9999999999;
     padding: 50px;
     transform: translate(-50%, -50%);
-    background: #444;
+    background: #666;
     border-radius: 5px;
+
+    .close{
+      height: 30px;
+      width: 30px;
+      margin: 5px;
+      position: absolute;
+      top:0;
+      right: 0;
+      background: none;
+      border:none;
+      cursor: pointer;
+
+      img{
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    & > * {
+      display: block;
+    }
+
+    .submitBtn{
+      font-weight: 800;
+      color: #333;
+      background: #fff;
+      text-transform: uppercase;
+      width: 100%;
+      transition: .1s;
+      cursor: pointer;
+
+      &:hover{
+        background: #dfdfdf;
+      }
+    }
+
+    input,
+    label{
+      width: calc(100% - 20px);
+      border:none;
+      padding:10px;
+      font-size: 1em;
+      margin: 15px 0;
+      font-family: $font;
+      border-radius: 3px;
+    }
+
+    label{
+      color: #fff;
+      background: #333;
+      text-align: center;
+      cursor: pointer;
+
+      input[type="file"]{
+        display: none;
+      }
+    }
+
+
 
     h1{
       display: block;
