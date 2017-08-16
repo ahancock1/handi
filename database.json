@@ -1,31 +1,34 @@
 {
-    "client": {
-        "La brosse dupont": {
-            "logo": "C:\\Users\\Nathan\\Desktop\\Is There Anybody Out There.mp3",
-            "name": "La brosse dupont",
-            "buttons": [
-                {
-                    "text": "Modes opératoires",
-                    "icon": "man-thinking.svg",
-                    "def": "Un mode opératoire consiste en la description détaillée des actions nécessaires à l'obtention d'un résultat. Exemple : je n'ai jamais fait ce travail. J'ai un doute. Je ne me rappelle plus comment faire.",
-                    "path": "C:\\Users\\Nathan\\Desktop\\mdp.txt",
-                    "private": false
+    "clients": {
+        "Lacme": {
+            "logo": "C:\\Users\\Nathan\\Desktop\\pp.png",
+            "name": "Lacme",
+            "buttons": {
+                "mo": {
+                    "path": "C:\\Users\\Nathan\\Desktop\\Is There Anybody Out There.mp3"
                 },
-                {
-                    "text": "Inventaire",
-                    "icon": "list.svg",
-                    "def": "L'inventaire est un comptage de nos stocks pour chaque client. Il doit être constamment à jour. Exemple : Combien j'ai de coques d'avance pour la référence : Pistolet de graissage pour l'entreprise Lacmé. Combien j'ai de sachets par référence de l'entreprise La Brosse et Dupont",
-                    "path": "C:\\Users\\Nathan\\Desktop\\tab_bord.psd",
-                    "private": false
+                "i": {
+                    "path": "C:\\Users\\Nathan\\Desktop\\tab_bord.psd"
                 },
-                {
-                    "text": "Éducateur",
-                    "icon": "minus-circle.svg",
-                    "def": "Cet espace est réservé à l'éducateur, vous avez besoin d'un mot de passe.",
-                    "path": "C:\\Users\\Nathan\\Desktop\\untitled.blend",
-                    "private": true
+                "e": {
+                    "path": "C:\\Users\\Nathan\\Desktop\\untitled.blend"
                 }
-            ]
+            }
+        },
+        "La brosse & dupont": {
+            "logo": "C:\\Users\\Nathan\\Desktop\\pp.png",
+            "name": "La brosse & dupont",
+            "buttons": {
+                "mo": {
+                    "path": "C:\\Users\\Nathan\\Desktop\\Is There Anybody Out There.mp3"
+                },
+                "i": {
+                    "path": "C:\\Users\\Nathan\\Desktop\\tab_bord.psd"
+                },
+                "e": {
+                    "path": "C:\\Users\\Nathan\\Desktop\\untitled.blend"
+                }
+            }
         }
     }
 }

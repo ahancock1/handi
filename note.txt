@@ -1,4 +1,1 @@
 retirer menu par défault / plein ecran
-
-base de donnée json
-ESCAPE fermer modal

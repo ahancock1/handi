@@ -4,6 +4,8 @@ const {shell} = require('electron')
 const {dialog} = require('electron').remote
 const path = require('path')
 const Mousetrap = require('mousetrap')
+const jsonDB = require('node-json-db')
+const db = new jsonDB('database', true, true)
 
 import Column from './js/components/column'
 import Add from './js/components/add'
@@ -15,11 +17,17 @@ class App extends React.Component {
     super()
     this.state = {
       modal: 'hidden',
-      private: true
+      private: true,
+      data: {}
     }
   }
 
-  componentDidMount(){
+  componentWillMount() {
+    var data = db.getData('/clients')
+    this.setState({data: data})
+  }
+
+  componentDidMount() {
     Mousetrap.bind('ctrl+h', () => this.setState({modal: 'add'}) )
     Mousetrap.bind('esc', () => this.setState({modal: 'hidden'}) )
   }
@@ -47,14 +55,13 @@ class App extends React.Component {
               </div>
     }
 
+    var columns = Object.keys(this.state.data).map( i  => <Column key={i} appState={this.appState.bind(this)} private={this.state.private} data={this.state.data[i]}/> )
+
+
     return(
         <div className="main">
           {modal}
-          <Column appState={this.appState.bind(this)} private={this.state.private} />
-          <Column appState={this.appState.bind(this)} private={this.state.private} />
-          <Column appState={this.appState.bind(this)} private={this.state.private} />
-          <Column appState={this.appState.bind(this)} private={this.state.private} />
-          <Column appState={this.appState.bind(this)} private={this.state.private} />
+          {columns}
         </div>
     )
   }

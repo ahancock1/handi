@@ -4,8 +4,8 @@ export default class Head extends React.Component {
   render() {
     return(
       <div className="head">
-        <img src="img/lacme.png" />
-        <h1>Lacme</h1>
+        <img src={this.props.img} />
+        <h1>{this.props.text}</h1>
       </div>
     )
   }

@@ -18,36 +18,24 @@ export default class Add extends React.Component {
         i = document.getElementById('add-i').files[0].path,
         e = document.getElementById('add-e').files[0].path
 
-    db.push("/client/" + name, {
+    db.push("/clients/" + name, {
       logo: img,
       name: name,
-      buttons: [
+      buttons: {
 
-        {
-          text: "Modes opératoires",
-          icon: "man-thinking.svg",
-          def: "Un mode opératoire consiste en la description détaillée des actions nécessaires à l'obtention d'un résultat. Exemple : je n'ai jamais fait ce travail. J'ai un doute. Je ne me rappelle plus comment faire.",
-          path: mo,
-          private: false
+        mo: {
+          path: mo
         },
 
-        {
-          text: "Inventaire",
-          icon: "list.svg",
-          def: "L'inventaire est un comptage de nos stocks pour chaque client. Il doit être constamment à jour. Exemple : Combien j'ai de coques d'avance pour la référence : Pistolet de graissage pour l'entreprise Lacmé. Combien j'ai de sachets par référence de l'entreprise La Brosse et Dupont",
-          path: i,
-          private: false
+        i: {
+          path: i
         },
 
-        {
-          text: "Éducateur",
-          icon: "minus-circle.svg",
-          def: "Cet espace est réservé à l'éducateur, vous avez besoin d'un mot de passe.",
-          path: e,
-          private: true
+        e: {
+          path: e
         }
 
-      ]
+      }
     })
 
   }
