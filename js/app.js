@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    var data = db.getData('/clients')
+    var data = db.getData('/')
     this.setState({data: data})
   }
 
@@ -46,7 +46,7 @@ class App extends React.Component {
     }
     else if (this.state.modal === 'password') {
       modal = <div className="modalContainer">
-                <Password appState={this.appState.bind(this)} />
+                <Password appState={this.appState.bind(this)} data={this.state.data} />
               </div>
     }
     else if (this.state.modal === 'add') {
@@ -55,7 +55,7 @@ class App extends React.Component {
               </div>
     }
 
-    var columns = Object.keys(this.state.data).map( i  => <Column key={i} appState={this.appState.bind(this)} private={this.state.private} data={this.state.data[i]}/> )
+    var columns = Object.keys(this.state.data.clients).map(i  => <Column key={i} appState={this.appState.bind(this)} private={this.state.private} data={this.state.data} clientKey={i}/> )
 
 
     return(

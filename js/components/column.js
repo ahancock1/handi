@@ -7,33 +7,30 @@ export default class Column extends React.Component {
   render() {
     return(
       <div className="column">
-        <Head text={this.props.data.name} img={this.props.data.logo}/>
+        <Head text={this.props.data.clients[this.props.clientKey].name} img={this.props.data.clients[this.props.clientKey].logo}/>
         <Item
           text="Modes opératoires"
-          def="Un mode opératoire consiste en la description détaillée des actions nécessaires à l'obtention d'un résultat.
-          Exemple : je n'ai jamais fait ce travail. J'ai un doute. Je ne me rappelle plus comment faire."
-          icon="man-thinking.svg"
-          path={this.props.data.buttons.mo.path}
+          def={this.props.data.config.def.mo}
+          icon={this.props.data.config.icons.mo}
+          path={this.props.data.clients[this.props.clientKey].buttons.mo.path}
           private={false}
           appState={this.props.appState}
         />
 
         <Item
           text="Inventaire"
-          def="L'inventaire est un comptage de nos stocks pour chaque client. Il doit être constamment à jour.
-          Exemple : Combien j'ai de coques d'avance pour la référence : Pistolet de graissage pour l'entreprise Lacmé.
-          Combien j'ai de sachets par référence de l'entreprise La Brosse et Dupont"
-          icon="list.svg"
-          path={this.props.data.buttons.i.path}
+          def={this.props.data.config.def.i}
+          icon={this.props.data.config.icons.i}
+          path={this.props.data.clients[this.props.clientKey].buttons.i.path}
           private={false}
           appState={this.props.appState}
         />
 
         <Item
           text="éducateur"
-          def="Cet espace est réservé à l'éducateur, vous avez besoin d'un mot de passe."
-          icon="minus-circle.svg"
-          path={this.props.data.buttons.e.path}
+          def={this.props.data.config.def.e}
+          icon={this.props.data.config.icons.e}
+          path={this.props.data.clients[this.props.clientKey].buttons.e.path}
           private={this.props.private}
           appState={this.props.appState}
         />

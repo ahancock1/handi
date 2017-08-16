@@ -1,1 +1,3 @@
 retirer menu par défault / plein ecran
+
+si il n'y a aucun client, proposer d'en ajouter

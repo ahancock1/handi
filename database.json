@@ -1,4 +1,17 @@
 {
+    "config": {
+        "password": "123456",
+        "def": {
+          "mo": "Un mode opératoire consiste en la description détaillée des actions nécessaires à l'obtention d'un résultat. Exemple : je n'ai jamais fait ce travail. J'ai un doute. Je ne me rappelle plus comment faire.",
+          "i": "L'inventaire est un comptage de nos stocks pour chaque client. Il doit être constamment à jour. Exemple : Combien j'ai de coques d'avance pour la référence : Pistolet de graissage pour l'entreprise Lacmé. Combien j'ai de sachets par référence de l'entreprise La Brosse et Dupont",
+          "e": "Cet espace est réservé à l'éducateur, vous avez besoin d'un mot de passe."
+        },
+        "icons": {
+          "mo": "man-thinking.svg",
+          "i": "list.svg",
+          "e": "minus-circle.svg"
+        }
+    },
     "clients": {
         "Lacme": {
             "logo": "C:\\Users\\Nathan\\Desktop\\pp.png",

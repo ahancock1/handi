@@ -5,8 +5,14 @@ export default class Password extends React.Component {
   constructor(){
     super()
     this.state = {
-      pass: '123456'
+      pass: ''
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      pass: this.props.data.config.password
+    })
   }
 
   submit(){
