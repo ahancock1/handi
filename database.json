@@ -27,21 +27,6 @@
                     "path": "C:\\Users\\Nathan\\Desktop\\untitled.blend"
                 }
             }
-        },
-        "La brosse & dupont": {
-            "logo": "lbd.gif",
-            "name": "La brosse & dupont",
-            "buttons": {
-                "mo": {
-                    "path": "C:\\Users\\Nathan\\Desktop\\Is There Anybody Out There.mp3"
-                },
-                "i": {
-                    "path": "C:\\Users\\Nathan\\Desktop\\tab_bord.psd"
-                },
-                "e": {
-                    "path": "C:\\Users\\Nathan\\Desktop\\untitled.blend"
-                }
-            }
         }
     }
 }

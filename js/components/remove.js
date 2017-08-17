@@ -12,6 +12,7 @@ export default class Remove extends React.Component {
   }
 
   remove(id){
+    fs.unlink('./img/clients/' + this.state.data.clients[id].logo)
     db.delete('/clients/' + this.state.data.clients[id].name)
   }
 
