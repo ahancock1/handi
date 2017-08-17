@@ -1,4 +1,4 @@
 retirer menu par défault / plein ecran
 
 pouvoir supprimer clients
-copier logo clients
+logo proportions

@@ -1,16 +1,18 @@
 {
   "name": "handi",
   "version": "1.0.0",
-  "description": "",
+  "description": "handi",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . --out=build --platform=win32 --arch=all --electronVersion=1.6.11 --overwrite"
+    "build": "electron-packager ."
   },
-  "author": "",
+  "author": "Nathan Billeau",
   "license": "ISC",
   "dependencies": {
     "electron-prebuilt-compile": "^1.6.11",
+    "mousetrap": "^1.6.1",
+    "node-json-db": "^0.7.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   }

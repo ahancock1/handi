@@ -156,9 +156,14 @@ h1.empty{
       font-weight: 500;
       color: #333;
       text-transform: uppercase;
+      flex: .5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
 
       img{
-        max-height: 8vh;
+        max-height: 7vh;
         max-width: 100%;
       }
     }
@@ -177,9 +182,14 @@ h1.empty{
       width: 100%;
       height: calc(100% - (#{$verticalMargin} * 2));
 
+      &.educ{
+        flex: .7;
+      }
+
+
       img {
         margin-top: 10%;
-        width: 50%;
+        width: 45%;
         max-height: 60%;
       }
 
@@ -262,9 +272,10 @@ h1.empty{
         }
       }
 
+
       &:hover {
-        flex: 1.7;
         z-index: 9999;
+        flex: 1.7;
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 
         .infos {

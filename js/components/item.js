@@ -5,8 +5,13 @@ export default class Item extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      access: 'default'
+      access: 'default',
+      private: false
     }
+  }
+
+  componentDidMount() {
+    this.setState({private: this.props.private})
   }
 
   default() {
@@ -44,10 +49,10 @@ export default class Item extends React.Component {
   }
 
 
-
   render() {
+
     return(
-      <div className="item" onMouseLeave={() => this.default()}>
+      <div className={this.state.private ? "item educ" : 'item'} onMouseLeave={() => this.default()}>
         <img src={"img/" + this.props.icon} />
         <h1>{this.props.text}</h1>
         <div className={"infos " + this.state.access}>
