@@ -6,13 +6,6 @@ const db = new jsonDB('database', true, true)
 
 export default class Add extends React.Component {
 
-  constructor(){
-    super()
-    this.state = {
-
-    }
-  }
-
   submit(){
     let name = document.getElementById('add-name').value,
         img = document.getElementById('add-img').files[0].path,
@@ -20,7 +13,6 @@ export default class Add extends React.Component {
         i = document.getElementById('add-i').files[0].path,
         e = document.getElementById('add-e').files[0].path,
         imgBase = path.parse(img).base
-
 
     fs.createReadStream(img).pipe(fs.createWriteStream('./img/clients/' + imgBase))
 
@@ -43,7 +35,7 @@ export default class Add extends React.Component {
 
       }
     })
-
+    
   }
 
   close(){

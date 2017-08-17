@@ -42,21 +42,6 @@
                     "path": "C:\\Users\\Nathan\\Desktop\\untitled.blend"
                 }
             }
-        },
-        "aze": {
-            "logo": "groot.png",
-            "name": "aze",
-            "buttons": {
-                "mo": {
-                    "path": "C:\\Users\\Nathan\\Desktop\\apps\\lv3d\\build\\img\\voiture.png"
-                },
-                "i": {
-                    "path": "C:\\Users\\Nathan\\Desktop\\apps\\lv3d\\build\\img\\pen.png"
-                },
-                "e": {
-                    "path": "C:\\Users\\Nathan\\Desktop\\apps\\lv3d\\build\\img\\pla.png"
-                }
-            }
         }
     }
 }

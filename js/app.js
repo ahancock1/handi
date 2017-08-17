@@ -9,6 +9,7 @@ const db = new jsonDB('database', true, true)
 
 import Column from './js/components/column'
 import Add from './js/components/add'
+import Remove from './js/components/remove'
 import Password from './js/components/password'
 
 class App extends React.Component {
@@ -29,6 +30,7 @@ class App extends React.Component {
 
   componentDidMount() {
     Mousetrap.bind('ctrl+h', () => this.setState({modal: 'add'}) )
+    Mousetrap.bind('ctrl+j', () => this.setState({modal: 'remove'}) )
     Mousetrap.bind('esc', () => this.setState({modal: 'hidden'}) )
   }
 
@@ -52,6 +54,11 @@ class App extends React.Component {
     else if (this.state.modal === 'add') {
       modal = <div className="modalContainer">
                 <Add appState={this.appState.bind(this)} />
+              </div>
+    }
+    else if (this.state.modal === 'remove') {
+      modal = <div className="modalContainer">
+                <Remove appState={this.appState.bind(this)} />
               </div>
     }
 

@@ -115,6 +115,36 @@ h1.empty{
       }
     }
 
+    .removeList li{
+      height: 40px;
+      background: #777;
+      position: relative;
+      font-family: $font;
+      color: #fff;
+      line-height: 40px;
+      padding-left: 10px;
+      margin: 10px 0;
+
+      .removeBtn{
+        height: 100%;
+        padding: 5px;
+        background: #cc4545;
+        border: none;
+        position: absolute;
+        right: 0;
+        transition: .1s;
+        cursor: pointer;
+
+        &:hover{
+          transform: scale(1.15);
+        }
+
+        img{
+          height: 100%;
+        }
+      }
+    }
+
 
 
     h1{
