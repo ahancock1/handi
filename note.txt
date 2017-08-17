@@ -1,4 +1,1 @@
-retirer menu par défault / plein ecran
 
-pouvoir supprimer clients
-logo proportions
