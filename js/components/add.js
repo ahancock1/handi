@@ -1,4 +1,6 @@
 import React from 'react'
+const fs = require('fs')
+const path = require('path')
 const jsonDB = require('node-json-db')
 const db = new jsonDB('database', true, true)
 
@@ -16,10 +18,14 @@ export default class Add extends React.Component {
         img = document.getElementById('add-img').files[0].path,
         mo = document.getElementById('add-mo').files[0].path,
         i = document.getElementById('add-i').files[0].path,
-        e = document.getElementById('add-e').files[0].path
+        e = document.getElementById('add-e').files[0].path,
+        imgBase = path.parse(img).base
+
+
+    fs.createReadStream(img).pipe(fs.createWriteStream('./img/clients/' + imgBase))
 
     db.push("/clients/" + name, {
-      logo: img,
+      logo: imgBase,
       name: name,
       buttons: {
 
