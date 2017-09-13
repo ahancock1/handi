@@ -4,8 +4,7 @@ const {shell} = require('electron')
 const {dialog} = require('electron').remote
 const path = require('path')
 const Mousetrap = require('mousetrap')
-const jsonDB = require('node-json-db')
-const db = new jsonDB('database', true, true)
+const db = require('./database.json')
 
 import Column from './js/components/column'
 import Add from './js/components/add'
@@ -24,8 +23,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    var data = db.getData('/')
-    this.setState({data: data})
+    this.setState({data: db})
   }
 
   componentDidMount() {
@@ -69,7 +67,9 @@ class App extends React.Component {
     else{
       var columns = <h1 className="empty">
                       Aucun client n'est dans la base de donnée, voulez-vous en ajouter ?
-                      <span>ctrl+h</span>
+                      <span>ctrl +</span>
+                      Si plus tard vous voulez en supprimer :
+                      <span>ctrl -</span>
                     </h1>
     }
 

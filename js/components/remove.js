@@ -1,19 +1,31 @@
 import React from 'react'
 const fs = require('fs')
 const path = require('path')
-const jsonDB = require('node-json-db')
-const db = new jsonDB('database', true, true)
+let dbPath = '..\\..\\..\\database.json'
+
+const db = require(dbPath)
 
 export default class Remove extends React.Component {
 
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      confirm: false
+    }
   }
 
   remove(id){
-    fs.unlink('./img/clients/' + this.state.data.clients[id].logo)
-    db.delete('/clients/' + this.state.data.clients[id].name)
+    if (this.state.confirm === true){
+      fs.unlink(__dirname + '\\img\\clients\\' + this.state.data.clients[id].logo)
+      delete(db.clients[id])
+
+      fs.writeFileSync(__dirname + '\\' + dbPath, JSON.stringify(db, null, '\t'))
+      this.close()
+    }
+    else {
+      this.setState({confirm: true})
+    }
+
   }
 
   close(){
@@ -21,8 +33,7 @@ export default class Remove extends React.Component {
   }
 
   componentWillMount() {
-    var data = db.getData('/')
-    this.setState({data: data})
+    this.setState({data: db})
   }
 
   render(){
@@ -30,14 +41,14 @@ export default class Remove extends React.Component {
     let list = Object.keys(this.state.data.clients).map(i => <li key={i}>
                                                               {this.state.data.clients[i].name}
                                                               <button onClick={() => this.remove(i)} className="removeBtn">
-                                                                <img src="./img/rubbish-bin.svg" />
+                                                                {this.state.confirm === false ? <img src="./img/rubbish-bin.svg" /> : 'Confirmer'}
                                                               </button>
                                                             </li>)
 
     return (
       <div className="modal">
         <button onClick={() => this.close()} className="close">
-          <img src="img/cross-out.svg" />
+          <img src='img/cross-out.svg' />
         </button>
 
         <h1>Supprimer un client</h1>

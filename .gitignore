@@ -66,5 +66,6 @@ database.json
 db.json
 build/
 dist/
+pack/
 
 # End of https://www.gitignore.io/api/node

@@ -34,6 +34,7 @@ h1.empty{
   span{
     font-weight: 300;
     display: block;
+    margin-bottom: 20px; 
   }
 }
 
@@ -109,10 +110,6 @@ h1.empty{
       background: #333;
       text-align: center;
       cursor: pointer;
-
-      input[type="file"]{
-        display: none;
-      }
     }
 
     .removeList li{
@@ -219,8 +216,8 @@ h1.empty{
 
       img {
         margin-top: 10%;
-        width: 45%;
-        max-height: 60%;
+        width: 40%;
+        max-height: 50%;
       }
 
       h1 {

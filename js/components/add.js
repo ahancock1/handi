@@ -1,41 +1,48 @@
 import React from 'react'
 const fs = require('fs')
 const path = require('path')
-const jsonDB = require('node-json-db')
-const db = new jsonDB('database', true, true)
+let dbPath = '..\\..\\..\\database.json'
+
+const db = require(dbPath)
 
 export default class Add extends React.Component {
 
+
+  constructor() {
+    super()
+    this.state = {
+      confirm: false
+    }
+  }
+
   submit(){
-    let name = document.getElementById('add-name').value,
-        img = document.getElementById('add-img').files[0].path,
-        mo = document.getElementById('add-mo').files[0].path,
-        i = document.getElementById('add-i').files[0].path,
-        e = document.getElementById('add-e').files[0].path,
-        imgBase = path.parse(img).base
+    if(this.state.confirm === true){
+        let name = document.getElementById('add-name').value,
+          img = document.getElementById('add-img').files[0].path,
+          mo = document.getElementById('add-mo').files[0].path,
+          i = document.getElementById('add-i').files[0].path,
+          e = document.getElementById('add-e').files[0].path,
+          imgBase = path.parse(img).base
 
-    fs.createReadStream(img).pipe(fs.createWriteStream('./img/clients/' + imgBase))
+      fs.createReadStream(img).pipe(fs.createWriteStream(__dirname + '\\img\\clients\\' + imgBase))
 
-    db.push("/clients/" + name, {
-      logo: imgBase,
-      name: name,
-      buttons: {
-
-        mo: {
-          path: mo
-        },
-
-        i: {
-          path: i
-        },
-
-        e: {
-          path: e
+      db.clients[name] = {
+        logo: imgBase,
+        name: name,
+        buttons: {
+          mo: mo,
+          i: i,
+          e: e
         }
-
       }
-    })
-    
+
+      fs.writeFileSync(__dirname + '\\' + dbPath, JSON.stringify(db, null, '\t'))
+      this.close()
+    }
+    else{
+      this.setState({confirm: true})
+    }
+
   }
 
   close(){
@@ -53,26 +60,26 @@ export default class Add extends React.Component {
         <input type="text" placeholder="Nom du client" id="add-name" />
 
         <label>
-          <input type="file" id="add-img"/>
           Logo du client
+          <input type="file" id="add-img" accept="image/*"/>
         </label>
 
         <label>
-          <input type="file" id="add-mo"/>
           Mode Opératoire
+          <input type="file" id="add-mo"/>
         </label>
 
         <label>
-          <input type="file" id="add-i"/>
           Inventaire
+          <input type="file" id="add-i"/>
         </label>
 
         <label>
-          <input type="file" id="add-e"/>
           Éducateur
+          <input type="file" id="add-e"/>
         </label>
 
-        <input type="button" onClick={() => this.submit()} value="Ajouter" className="submitBtn"/>
+        <input type="button" onClick={() => this.submit()} value={this.state.confirm === false ? 'Ajouter' : 'Confirmer'} className="submitBtn"/>
       </div>
     )
   }
